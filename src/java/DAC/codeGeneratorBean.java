@@ -22,16 +22,6 @@ public class codeGeneratorBean implements Serializable {
 
     Random _seed;
     Integer randomCode;
-    Integer userCode;
-
-    public Integer getUserCode() {
-        return userCode;
-    }
-
-    public void setUserCode(Integer userCode) {
-        this.userCode = userCode;
-    }
-    boolean valid;
     String response;
     
     public Integer generateNewCode()
@@ -55,20 +45,9 @@ public class codeGeneratorBean implements Serializable {
         }
     }
 
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-    /**
-     * Creates a new instance of codeGeneratorBean
-     */
     public codeGeneratorBean() {
         Random seed = new Random();
-        valid = true;
-        randomCode = new Integer(seed.nextInt());
+        randomCode = seed.nextInt();
         System.out.println("Code: " + randomCode);
     }
     
