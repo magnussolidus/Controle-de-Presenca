@@ -19,5 +19,14 @@ public class aluno {
     {
         this.code[id] = toAdd;
     }
+    
+    public boolean[] getCode()
+    {
+        return this.code;
+    }
 
+    public String getName()
+    {
+        return this.name;
+    }
 }
