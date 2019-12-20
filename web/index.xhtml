@@ -26,8 +26,8 @@
                 </form>-->
 
                 <h:form>
-                    <h:inputText id="userName" size="30" maxlength="80" value=""/>
-                    <h:inputText id="userNumber" size="30" maxlength="50" value="" />
+                    <h:inputText id="userName" size="30" maxlength="80" value="#{managerBean.getrString}"/>
+                    <h:inputText id="userNumber" size="30" maxlength="50" value="#{managerBean.getrCode}" />
                     <h:commandButton id="submit" value="submit" action="response"/>
                 </h:form>
             </div>

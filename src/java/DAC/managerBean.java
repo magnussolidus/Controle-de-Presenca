@@ -15,7 +15,8 @@ import javax.enterprise.context.Dependent;
  *
  * @author Magno
  */
-@ManagedBean("managerBean")
+
+@ManagedBean(value="managerBean")
 @Dependent
 public class managerBean implements Serializable{
 
@@ -23,6 +24,11 @@ public class managerBean implements Serializable{
     List<aluno> alunos;
     professor prof;
     int _curId;
+    
+    // receiving data
+    public String inputString;
+    Integer inputCode;
+    
     /**
      * Creates a new instance of managerBean
      */
@@ -32,6 +38,24 @@ public class managerBean implements Serializable{
         this.prof = new professor();
         this._curId = prof.getId();
     }
+
+    public String getrString() {
+        return inputString;
+    }
+
+    public void setrString(String _rString) {
+        this.inputString = _rString;
+    }
+
+    public Integer getrCode() {
+        return inputCode;
+    }
+
+    public void setrCode(Integer _rCode) {
+        this.inputCode = _rCode;
+    }
+    
+    
     
     public boolean addAluno(aluno a)
     {
@@ -81,5 +105,21 @@ public class managerBean implements Serializable{
         {
             this.addAluno(a);
         }
+        
+        a.addCode(true, _curId);
     }
+    
+    public void receiveInput(String s, Integer code)
+    {
+        aluno _a;
+        if(getSpecificAluno(s).getName().equals("Desconhecido"))
+        {
+            _a = new aluno(s);
+            this.addAluno(_a);
+        }
+       
+        _a = getSpecificAluno(s);
+        checkPresenca(_a, code);
+    }
+    
 }

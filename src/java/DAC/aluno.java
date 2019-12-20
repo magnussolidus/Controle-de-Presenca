@@ -29,4 +29,14 @@ public class aluno {
     {
         return this.name;
     }
+    
+    public int getPresence()
+    {
+        int _t = 0;
+        for(boolean c:code)
+            if(c)
+                ++_t;
+        
+        return _t;
+    }
 }
